@@ -1,4 +1,4 @@
-package mis.services.namingserver;
+package com.microservices.namingserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,3 +1,5 @@
 /.metadata/
 .metadata/
 *.txt
+.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+.metadata/.plugins/org.eclipse.jdt.core/643825382.index
