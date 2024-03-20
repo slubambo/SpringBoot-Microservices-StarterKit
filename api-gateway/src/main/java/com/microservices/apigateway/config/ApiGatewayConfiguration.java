@@ -17,6 +17,11 @@ public class ApiGatewayConfiguration {
 	@Bean
 	public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
 		return builder.routes()
+
+				/*
+				 * Routes for Authentication
+				 */
+
 				.route(p -> p.path("/auth/**").filters(f -> f.rewritePath("/auth/(?<segment>.*)", "/auth/${segment}"))
 						.uri("lb://user-service"))
 
