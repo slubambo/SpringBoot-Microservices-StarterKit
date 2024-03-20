@@ -29,8 +29,6 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
 		return ((exchange, chain) -> {
 			ServerHttpRequest request = null;
 
-			System.out.println("Request: " + exchange.getRequest().getPath());
-
 			if (!validator.isSecured.test(exchange.getRequest())) {
 
 				// header contains token or not
@@ -47,6 +45,9 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
 
 				try {
 
+					/*
+					 * Validate Token and add custom header
+					 */
 					if (jwtUtil.validateUserToken(authHeader)) {
 
 						request = exchange.getRequest().mutate()
