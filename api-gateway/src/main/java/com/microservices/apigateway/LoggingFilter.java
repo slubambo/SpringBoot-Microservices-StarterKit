@@ -1,4 +1,4 @@
-package mis.services.apigateway;
+package com.microservices.apigateway;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

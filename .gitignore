@@ -13,3 +13,4 @@
 .metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
 .metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+*.ser

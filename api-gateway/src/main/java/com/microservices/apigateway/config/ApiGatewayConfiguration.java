@@ -1,4 +1,4 @@
-package mis.services.apigateway.config;
+package com.microservices.apigateway.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -6,7 +6,7 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import mis.services.apigateway.filter.AuthFilter;
+import com.microservices.apigateway.filter.AuthFilter;
 
 @Configuration
 public class ApiGatewayConfiguration {

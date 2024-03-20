@@ -1,4 +1,4 @@
-package mis.services.apigateway.util;
+package com.microservices.apigateway.util;
 
 import java.security.Key;
 import java.util.function.Function;

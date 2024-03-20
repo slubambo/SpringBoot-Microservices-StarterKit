@@ -1,4 +1,4 @@
-package mis.services.apigateway.filter;
+package com.microservices.apigateway.filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -7,8 +7,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 
-import mis.services.apigateway.config.RouteValidator;
-import mis.services.apigateway.util.JwtUtil;
+import com.microservices.apigateway.config.RouteValidator;
+import com.microservices.apigateway.util.JwtUtil;
 
 @Component
 public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> {

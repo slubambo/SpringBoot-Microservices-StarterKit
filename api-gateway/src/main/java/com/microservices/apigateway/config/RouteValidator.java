@@ -1,4 +1,4 @@
-package mis.services.apigateway.config;
+package com.microservices.apigateway.config;
 
 import org.springframework.stereotype.Component;
 
