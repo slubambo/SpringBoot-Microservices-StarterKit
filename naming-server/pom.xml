@@ -9,11 +9,11 @@
 		<version>3.2.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>mis.services</groupId>
+	<groupId>com.microservices</groupId>
 	<artifactId>naming-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>naming-server</name>
-	<description>Naming Server for MIS Services</description>
+	<description>Naming Server</description>
 
 	<properties>
 		<java.version>21</java.version>
