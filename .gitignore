@@ -1,5 +1,14 @@
-/.metadata/
+.metadata/
 .metadata/
 *.txt
 .metadata/.plugins/org.eclipse.jdt.core/1865797976.index
 .metadata/.plugins/org.eclipse.jdt.core/643825382.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/naming-server/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/naming-server/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.core.resources/0.snap
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+.metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser
