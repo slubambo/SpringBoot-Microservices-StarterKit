@@ -55,3 +55,12 @@
 *.index
 *.xmi
 *.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/naming-server/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/naming-server/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/0.snap
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt

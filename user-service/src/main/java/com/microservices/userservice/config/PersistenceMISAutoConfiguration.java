@@ -22,14 +22,14 @@ import jakarta.persistence.EntityManagerFactory;
 
 @Configuration
 @PropertySource({ "classpath:application-${spring.profiles.active}.properties" })
-@EnableJpaRepositories(basePackages = "mis.microservices.userservice.repository", entityManagerFactoryRef = "misEntityManager", transactionManagerRef = "misTransactionManager")
+@EnableJpaRepositories(basePackages = "com.microservices.userservice.repository", entityManagerFactoryRef = "comEntityManager", transactionManagerRef = "comTransactionManager")
 public class PersistenceMISAutoConfiguration {
 
 	@Value("${spring.datasource.jpa.hibernate.ddl-auto}")
 	private String ddlAuto;
 
 	@Primary
-	@Bean(name = "mis-db")
+	@Bean(name = "user-db")
 	@ConfigurationProperties(prefix = "spring.datasource")
 	public DataSource userDataSource() {
 		return DataSourceBuilder.create().build();
@@ -37,14 +37,14 @@ public class PersistenceMISAutoConfiguration {
 
 	// misEntityManager bean
 	@Primary
-	@Bean(name = "misEntityManager")
-	public LocalContainerEntityManagerFactoryBean misEntityManager(final EntityManagerFactoryBuilder builder,
-			final @Qualifier("mis-db") DataSource dataSource) {
+	@Bean(name = "comEntityManager")
+	public LocalContainerEntityManagerFactoryBean comEntityManager(final EntityManagerFactoryBuilder builder,
+			final @Qualifier("user-db") DataSource dataSource) {
 
-		return builder.dataSource(dataSource).packages("mis.microservices.userservice.model").persistenceUnit("mis-db")
-				.properties(singletonMap("hibernate.hbm2ddl.auto", ddlAuto))
+		return builder.dataSource(dataSource).packages("com.microservices.userservice.model")
+				.persistenceUnit("user-db").properties(singletonMap("hibernate.hbm2ddl.auto", ddlAuto))
 				.properties(singletonMap("hibernate.dialect", "org.hibernate.dialect.MySQLDialect"))
-				
+
 				.properties(singletonMap("hibernate.physical_naming_strategy",
 						"com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy"))
 
@@ -52,9 +52,9 @@ public class PersistenceMISAutoConfiguration {
 	}
 
 	@Primary
-	@Bean(name = "misTransactionManager")
-	public PlatformTransactionManager misTransactionManager(
-			@Qualifier("misEntityManager") EntityManagerFactory misTransactionManager) {
+	@Bean(name = "comTransactionManager")
+	public PlatformTransactionManager comTransactionManager(
+			@Qualifier("comEntityManager") EntityManagerFactory misTransactionManager) {
 		return new JpaTransactionManager(misTransactionManager);
 	}
 
