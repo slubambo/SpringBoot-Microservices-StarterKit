@@ -33,3 +33,8 @@
 .metadata/.plugins/
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 .metadata/.plugins/org.eclipse.m2e.logback/0.log
+.metadata/version.ini
+.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.log
