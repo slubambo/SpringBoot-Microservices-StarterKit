@@ -25,13 +25,11 @@ public class UserService {
 		if (user != null) {
 
 			response.setId(user.getId());
-//			response.setName(user.getName());
+			response.setName(user.getName());
 			response.setUsername(user.getUsername());
 			response.setEmail(user.getEmail());
-			response.setUserType(user.getUserType());
 			response.setStatus(user.getStatus());
-//			response.setPermissions(user.get().getPermissions().stream().map(UserPermission::getPermission)
-//					.collect(Collectors.toList()));
+
 		}
 
 		return response;
@@ -58,22 +56,6 @@ public class UserService {
 		UserDetailsResponse response = new UserDetailsResponse();
 
 		Optional<User> user = id != null ? userRepository.findById(id) : Optional.empty();
-
-		if (user.isPresent()) {
-			response = getUserDetails(user.get());
-		}
-
-		return response;
-	}
-
-	public UserDetailsResponse getUserDetails(Long id, String usertype) {
-
-		UserDetailsResponse response = new UserDetailsResponse();
-
-		UserType type = usertype != null ? UserType.valueOf(usertype) : null;
-
-		Optional<User> user = id != null && type != null ? userRepository.findByIdAndUsertype(id, type)
-				: Optional.empty();
 
 		if (user.isPresent()) {
 			response = getUserDetails(user.get());

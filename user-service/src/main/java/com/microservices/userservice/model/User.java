@@ -7,7 +7,6 @@ import org.hibernate.annotations.NaturalId;
 
 import com.microservices.userservice.audit.DateAudit;
 import com.microservices.userservice.util.enums.Status;
-import com.microservices.userservice.util.enums.UserType;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -24,6 +23,10 @@ public class User extends DateAudit {
 	private Long id;
 
 	@NotBlank
+	@Size(max = 250)
+	private String name;
+
+	@NotBlank
 	@Size(max = 50)
 	private String username;
 
@@ -33,19 +36,11 @@ public class User extends DateAudit {
 	@Email
 	private String email;
 
-	@Size(max = 40)
-	@Email
-	private String alternativeEmail;
-
-	private String phoneNumber;
-
 	@NotBlank
 	@Size(max = 100)
 	private String password;
 
-	private Integer status;
-
-	private UserType usertype;
+	private Status status;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -57,6 +52,14 @@ public class User extends DateAudit {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getUsername() {
@@ -75,14 +78,6 @@ public class User extends DateAudit {
 		this.email = email;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -91,20 +86,12 @@ public class User extends DateAudit {
 		this.password = password;
 	}
 
-	public Integer getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(Status status) {
 		this.status = status;
-	}
-
-	public UserType getUserType() {
-		return usertype;
-	}
-
-	public void setUserType(UserType userType) {
-		this.usertype = userType;
 	}
 
 	public Set<Role> getRoles() {

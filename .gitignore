@@ -47,3 +47,7 @@ build/
 ### VS Code ###
 .vscode/
 .metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+.metadata/.log
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
