@@ -36,12 +36,4 @@ public class UserController {
 		return userService.getUserDetails(id);
 	}
 
-	/*
-	 * Find User Details by id and user type path variable
-	 */
-	@PostMapping("/get-user-details/{id}/type/{usertype}")
-	public UserDetailsResponse getUserDetailsById(@PathVariable Long id, @PathVariable String usertype) {
-		return userService.getUserDetails(id, usertype);
-	}
-
 }

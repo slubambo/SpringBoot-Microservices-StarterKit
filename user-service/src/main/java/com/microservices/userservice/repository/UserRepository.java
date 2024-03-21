@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.microservices.userservice.model.User;
 import com.microservices.userservice.util.enums.Status;
-import com.microservices.userservice.util.enums.UserType;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
@@ -27,5 +26,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	List<User> findByStatus(Status status);
 
-	Optional<User> findByIdAndUsertype(Long id, UserType usertype);
 }
