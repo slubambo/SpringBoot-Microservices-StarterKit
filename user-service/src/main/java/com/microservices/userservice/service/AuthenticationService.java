@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.microservices.userservice.controller.AuthenticationController;
+import com.microservices.userservice.exception.AppException;
 import com.microservices.userservice.model.Role;
 import com.microservices.userservice.model.User;
 import com.microservices.userservice.payload.auth.JwtAuthenticationResponse;
