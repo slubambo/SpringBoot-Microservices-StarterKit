@@ -19,6 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.microservices.userservice.security.CustomUserDetailsService;
 import com.microservices.userservice.security.JwtAuthenticationFilter;
+import com.microservices.userservice.security.oauth2.CustomOAuth2UserService;
 
 @Configuration
 @EnableWebSecurity
