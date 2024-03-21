@@ -19,16 +19,12 @@ public class SessionUser {
 
 	private String username;
 
-	private String userType;
-
 	private Collection<?> authorities;
-
-	private Collection<?> permissions;
 
 	@Override
 	public String toString() {
-		return "UserTokenHeader [id=" + id + ", name=" + name + ", username=" + username + ",userType=" + userType
-				+ ", authorities=" + authorities + ", permissions=" + permissions + "]";
+		return "SessionUser [id=" + id + ", name=" + name + ", username=" + username + ", authorities=" + authorities
+				+ "]";
 	}
 
 }

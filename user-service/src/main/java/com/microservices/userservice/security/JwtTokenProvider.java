@@ -35,7 +35,7 @@ public class JwtTokenProvider {
 		Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
 
 		SessionUser sessionUser = new SessionUser(userPrincipal.getId(), userPrincipal.getName(),
-				userPrincipal.getUsername(), userPrincipal.getUserType(), userPrincipal.getAuthorities(), null);
+				userPrincipal.getUsername(), userPrincipal.getAuthorities());
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		String mapped = null;
@@ -60,7 +60,7 @@ public class JwtTokenProvider {
 		Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
 
 		SessionUser sessionUser = new SessionUser(loginRequest.getId(), loginRequest.getName(),
-				loginRequest.getUsername(), loginRequest.getUserType(), loginRequest.getAuthorities(), null);
+				loginRequest.getUsername(), loginRequest.getAuthorities());
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		String mapped = null;
