@@ -20,6 +20,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.microservices.userservice.security.CustomUserDetailsService;
 import com.microservices.userservice.security.JwtAuthenticationFilter;
 import com.microservices.userservice.security.oauth2.CustomOAuth2UserService;
+import com.microservices.userservice.security.oauth2.HttpCookieOAuth2AuthorizationRequestRepository;
+import com.microservices.userservice.security.oauth2.OAuth2AuthenticationFailureHandler;
+import com.microservices.userservice.security.oauth2.OAuth2AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -46,6 +49,17 @@ public class SecurityConfig {
 		return new JwtAuthenticationFilter();
 	}
 
+	/*
+	 * By default, Spring OAuth2 uses
+	 * HttpSessionOAuth2AuthorizationRequestRepository to save the authorization
+	 * request. But, since our service is stateless, we can't save it in the
+	 * session. We'll save the request in a Base64 encoded cookie instead.
+	 */
+	@Bean
+	public HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository() {
+		return new HttpCookieOAuth2AuthorizationRequestRepository();
+	}
+
 	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());
 	}
@@ -70,6 +84,14 @@ public class SecurityConfig {
 						.permitAll().anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+				.oauth2Login(oauth2Login -> oauth2Login
+						.authorizationEndpoint(
+								authorizationEndpoint -> authorizationEndpoint.baseUri("/oauth2/authorize")
+										.authorizationRequestRepository(cookieAuthorizationRequestRepository()))
+						.redirectionEndpoint(redirectionEndpoint -> redirectionEndpoint.baseUri("/oauth2/callback/*"))
+						.userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint.userService(customOAuth2UserService))
+						.successHandler(oAuth2AuthenticationSuccessHandler)
+						.failureHandler(oAuth2AuthenticationFailureHandler))
 				.userDetailsService(customUserDetailsService).build();
 	}
 
