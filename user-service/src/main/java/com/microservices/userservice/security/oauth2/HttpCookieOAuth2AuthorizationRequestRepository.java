@@ -1,7 +1,9 @@
 package com.microservices.userservice.security.oauth2;
 
+import com.microservices.userservice.util.CookieUtils;
 import com.nimbusds.oauth2.sdk.util.StringUtils;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.security.oauth2.client.web.AuthorizationRequestRepository;
@@ -38,7 +40,6 @@ public class HttpCookieOAuth2AuthorizationRequestRepository
 		}
 	}
 
-	@Override
 	public OAuth2AuthorizationRequest removeAuthorizationRequest(HttpServletRequest request) {
 		return this.loadAuthorizationRequest(request);
 	}
@@ -47,4 +48,11 @@ public class HttpCookieOAuth2AuthorizationRequestRepository
 		CookieUtils.deleteCookie(request, response, OAUTH2_AUTHORIZATION_REQUEST_COOKIE_NAME);
 		CookieUtils.deleteCookie(request, response, REDIRECT_URI_PARAM_COOKIE_NAME);
 	}
+
+	@Override
+	public OAuth2AuthorizationRequest removeAuthorizationRequest(HttpServletRequest request,
+			HttpServletResponse response) {
+		return this.loadAuthorizationRequest(request);
+	}
+
 }
