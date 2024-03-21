@@ -8,6 +8,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.microservices.userservice.config.AppProperties;
 import com.microservices.userservice.exception.BadRequestException;
+import com.microservices.userservice.security.JwtTokenProvider;
 import com.microservices.userservice.util.CookieUtils;
 
 import jakarta.servlet.ServletException;
@@ -24,14 +25,14 @@ import static com.microservices.userservice.security.oauth2.HttpCookieOAuth2Auth
 @Component
 public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-	private TokenProvider tokenProvider;
+	private JwtTokenProvider tokenProvider;
 
 	private AppProperties appProperties;
 
 	private HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
 
 	@Autowired
-	OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider, AppProperties appProperties,
+	OAuth2AuthenticationSuccessHandler(JwtTokenProvider tokenProvider, AppProperties appProperties,
 			HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository) {
 		this.tokenProvider = tokenProvider;
 		this.appProperties = appProperties;
@@ -64,7 +65,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
 		String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
 
-		String token = tokenProvider.createToken(authentication);
+		String token = tokenProvider.generateToken(authentication);
 
 		return UriComponentsBuilder.fromUriString(targetUrl).queryParam("token", token).build().toUriString();
 	}
