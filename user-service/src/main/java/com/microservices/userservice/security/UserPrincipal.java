@@ -1,4 +1,4 @@
-package mis.microservices.userservice.security;
+package com.microservices.userservice.security;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,8 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import mis.microservices.userservice.model.User;
+import com.microservices.userservice.model.User;
 
 public class UserPrincipal implements UserDetails {
 

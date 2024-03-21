@@ -1,4 +1,4 @@
-package mis.microservices.userservice.util.enums;
+package com.microservices.userservice.util.enums;
 
 public enum RoleName {
 	ROLE_ADMIN, ROLE_HR, ROLE_ACD, ROLE_ACT, ROLE_DOSA, ROLE_DER, ROLE_USER, ROLE_VC, ROLE_AUDIT, ROLE_DATA, ROLE_SFM,

@@ -1,4 +1,4 @@
-package mis.microservices.userservice.config;
+package com.microservices.userservice.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -17,8 +17,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import mis.microservices.userservice.security.CustomUserDetailsService;
-import mis.microservices.userservice.security.JwtAuthenticationFilter;
+import com.microservices.userservice.security.CustomUserDetailsService;
+import com.microservices.userservice.security.JwtAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity

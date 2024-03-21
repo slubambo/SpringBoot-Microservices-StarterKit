@@ -1,4 +1,4 @@
-package mis.microservices.userservice.audit;
+package com.microservices.userservice.audit;
 
 import java.util.Optional;
 
@@ -11,7 +11,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import mis.microservices.userservice.security.SessionUser;
+import com.microservices.userservice.security.SessionUser;
 
 @Configuration
 @PropertySource({ "classpath:application.properties" })

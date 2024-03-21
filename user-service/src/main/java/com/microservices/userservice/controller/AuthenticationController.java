@@ -1,4 +1,4 @@
-package mis.microservices.userservice.controller;
+package com.microservices.userservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservices.userservice.payload.auth.LoginRequest;
+import com.microservices.userservice.service.AuthenticationService;
+
 import jakarta.validation.Valid;
-import mis.microservices.userservice.payload.auth.LoginRequest;
-import mis.microservices.userservice.service.AuthenticationService;
 
 @RestController
 @RequestMapping("/auth")

@@ -1,4 +1,4 @@
-package mis.microservices.userservice.security;
+package com.microservices.userservice.security;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package mis.microservices.userservice.config;
+package com.microservices.userservice.config;
 
 import static java.util.Collections.singletonMap;
 

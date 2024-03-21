@@ -1,9 +1,10 @@
-package mis.microservices.userservice.model;
+package com.microservices.userservice.model;
 
 import org.hibernate.annotations.NaturalId;
 
+import com.microservices.userservice.util.enums.RoleName;
+
 import jakarta.persistence.*;
-import mis.microservices.userservice.util.enums.RoleName;
 
 @Entity
 @Table(name = "roles")

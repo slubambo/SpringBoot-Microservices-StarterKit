@@ -1,4 +1,4 @@
-package mis.microservices.userservice.service;
+package com.microservices.userservice.service;
 
 import java.util.Optional;
 
@@ -13,14 +13,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import mis.microservices.userservice.controller.AuthenticationController;
-import mis.microservices.userservice.model.User;
-import mis.microservices.userservice.payload.auth.JwtAuthenticationResponse;
-import mis.microservices.userservice.payload.auth.LoginRequest;
-import mis.microservices.userservice.payload.general.ApiResponse;
-import mis.microservices.userservice.repository.UserRepository;
-import mis.microservices.userservice.security.JwtTokenProvider;
-import mis.microservices.userservice.util.enums.Status;
+import com.microservices.userservice.controller.AuthenticationController;
+import com.microservices.userservice.model.User;
+import com.microservices.userservice.payload.auth.JwtAuthenticationResponse;
+import com.microservices.userservice.payload.auth.LoginRequest;
+import com.microservices.userservice.payload.general.ApiResponse;
+import com.microservices.userservice.repository.UserRepository;
+import com.microservices.userservice.security.JwtTokenProvider;
+import com.microservices.userservice.util.enums.Status;
 
 @Service
 public class AuthenticationService {

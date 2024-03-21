@@ -1,11 +1,12 @@
-package mis.microservices.userservice.payload.auth;
+package com.microservices.userservice.payload.auth;
+
+import com.microservices.userservice.util.enums.RoleName;
+import com.microservices.userservice.util.enums.Status;
+import com.microservices.userservice.util.enums.UserType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mis.microservices.userservice.util.enums.RoleName;
-import mis.microservices.userservice.util.enums.Status;
-import mis.microservices.userservice.util.enums.UserType;
 
 @NoArgsConstructor
 @Setter

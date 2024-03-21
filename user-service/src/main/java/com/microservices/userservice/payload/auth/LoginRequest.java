@@ -1,4 +1,4 @@
-package mis.microservices.userservice.payload.auth;
+package com.microservices.userservice.payload.auth;
 
 import java.util.Collection;
 

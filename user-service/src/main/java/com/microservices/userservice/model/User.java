@@ -1,17 +1,18 @@
-package mis.microservices.userservice.model;
+package com.microservices.userservice.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import org.hibernate.annotations.NaturalId;
 
+import com.microservices.userservice.audit.DateAudit;
+import com.microservices.userservice.util.enums.Status;
+import com.microservices.userservice.util.enums.UserType;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
-import mis.microservices.userservice.audit.DateAudit;
-import mis.microservices.userservice.util.enums.Status;
-import mis.microservices.userservice.util.enums.UserType;
 
 @Entity
 @Table(name = "user", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),

@@ -1,4 +1,4 @@
-package mis.microservices.userservice.security;
+package com.microservices.userservice.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import mis.microservices.userservice.model.User;
-import mis.microservices.userservice.repository.UserRepository;
+import com.microservices.userservice.model.User;
+import com.microservices.userservice.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

@@ -1,4 +1,4 @@
-package mis.microservices.userservice.controller;
+package com.microservices.userservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservices.userservice.payload.auth.UserDetailsResponse;
+import com.microservices.userservice.payload.user.UserDetailsRequest;
+import com.microservices.userservice.service.UserService;
+
 import jakarta.validation.Valid;
-import mis.microservices.userservice.payload.auth.UserDetailsResponse;
-import mis.microservices.userservice.payload.user.UserDetailsRequest;
-import mis.microservices.userservice.service.UserService;
 
 @RestController
 @RequestMapping("/user")

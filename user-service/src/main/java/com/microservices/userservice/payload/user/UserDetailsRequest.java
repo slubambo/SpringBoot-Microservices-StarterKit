@@ -1,4 +1,4 @@
-package mis.microservices.userservice.payload.user;
+package com.microservices.userservice.payload.user;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

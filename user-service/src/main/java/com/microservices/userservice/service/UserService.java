@@ -1,16 +1,16 @@
-package mis.microservices.userservice.service;
+package com.microservices.userservice.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mis.microservices.userservice.model.User;
-import mis.microservices.userservice.payload.auth.UserDetailsResponse;
-import mis.microservices.userservice.payload.user.UserDetailsRequest;
-import mis.microservices.userservice.repository.UserRepository;
-import mis.microservices.userservice.util.enums.Status;
-import mis.microservices.userservice.util.enums.UserType;
+import com.microservices.userservice.model.User;
+import com.microservices.userservice.payload.auth.UserDetailsResponse;
+import com.microservices.userservice.payload.user.UserDetailsRequest;
+import com.microservices.userservice.repository.UserRepository;
+import com.microservices.userservice.util.enums.Status;
+import com.microservices.userservice.util.enums.UserType;
 
 @Service
 public class UserService {

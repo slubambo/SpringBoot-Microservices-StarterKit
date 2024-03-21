@@ -1,4 +1,4 @@
-package mis.microservices.userservice;
+package com.microservices.userservice;
 
 import java.util.TimeZone;
 

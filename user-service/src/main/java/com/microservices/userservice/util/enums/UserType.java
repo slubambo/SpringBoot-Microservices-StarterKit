@@ -1,4 +1,4 @@
-package mis.microservices.userservice.util.enums;
+package com.microservices.userservice.util.enums;
 
 import java.util.HashMap;
 import java.util.Map;

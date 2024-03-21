@@ -1,4 +1,4 @@
-package mis.microservices.userservice.payload.general;
+package com.microservices.userservice.payload.general;
 
 public class ApiResponse {
 	private Boolean success;

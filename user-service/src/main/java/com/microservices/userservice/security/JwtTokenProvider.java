@@ -1,11 +1,10 @@
-package mis.microservices.userservice.security;
+package com.microservices.userservice.security;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.jsonwebtoken.*;
-import mis.microservices.userservice.payload.auth.LoginRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.microservices.userservice.payload.auth.LoginRequest;
 
 @Component
 public class JwtTokenProvider {

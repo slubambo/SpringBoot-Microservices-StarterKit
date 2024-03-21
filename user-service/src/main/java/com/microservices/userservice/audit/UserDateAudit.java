@@ -1,4 +1,4 @@
-package mis.microservices.userservice.audit;
+package com.microservices.userservice.audit;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;

@@ -1,4 +1,4 @@
-package mis.microservices.userservice.audit;
+package com.microservices.userservice.audit;
 
 import java.io.Serializable;
 import java.time.Instant;

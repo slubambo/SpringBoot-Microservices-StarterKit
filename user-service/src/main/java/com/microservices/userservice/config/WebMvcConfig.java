@@ -1,4 +1,4 @@
-package mis.microservices.userservice.config;
+package com.microservices.userservice.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

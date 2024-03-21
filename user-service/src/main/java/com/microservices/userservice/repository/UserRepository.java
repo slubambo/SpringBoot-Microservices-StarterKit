@@ -1,4 +1,4 @@
-package mis.microservices.userservice.repository;
+package com.microservices.userservice.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import mis.microservices.userservice.model.User;
-import mis.microservices.userservice.util.enums.Status;
-import mis.microservices.userservice.util.enums.UserType;
+import com.microservices.userservice.model.User;
+import com.microservices.userservice.util.enums.Status;
+import com.microservices.userservice.util.enums.UserType;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
