@@ -28,6 +28,7 @@ import com.microservices.userservice.payload.general.ApiResponse;
 import com.microservices.userservice.repository.RoleRepository;
 import com.microservices.userservice.repository.UserRepository;
 import com.microservices.userservice.security.JwtTokenProvider;
+import com.microservices.userservice.util.enums.AuthProvider;
 import com.microservices.userservice.util.enums.RoleName;
 import com.microservices.userservice.util.enums.Status;
 
@@ -117,6 +118,8 @@ public class AuthenticationService {
 				signUpRequest.getPassword());
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		
+		user.setProvider(AuthProvider.local);
 
 		Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
 				.orElseThrow(() -> new AppException("User Role not set."));
