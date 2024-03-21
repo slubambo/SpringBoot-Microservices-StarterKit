@@ -53,3 +53,5 @@
 .metadata/.plugins/org.eclipse.m2e.core/workspacestate.properties
 .metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser
 *.index
+*.xmi
+*.snap
