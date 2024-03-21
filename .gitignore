@@ -1,6 +1,7 @@
 # Ignore all metadata folders
 **/.metadata/
 .metadata/**
+.metadata/.plugins/**
 
 # Other patterns to ignore
 *.txt
@@ -45,3 +46,4 @@ build/
 
 ### VS Code ###
 .vscode/
+.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
