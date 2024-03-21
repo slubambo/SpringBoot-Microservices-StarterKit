@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservices.userservice.payload.auth.LoginRequest;
+import com.microservices.userservice.payload.auth.SignUpRequest;
 import com.microservices.userservice.service.AuthenticationService;
 
 import jakarta.validation.Valid;
@@ -22,6 +23,12 @@ public class AuthenticationController {
 	@PostMapping("/sign-in")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 		return authenticationService.authenticateUser(loginRequest);
+	}
+
+	@PostMapping("/sign-up")
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+
+		return authenticationService.registerUser(signUpRequest);
 	}
 
 }
