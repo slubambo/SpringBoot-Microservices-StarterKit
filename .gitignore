@@ -166,3 +166,4 @@ build/
 .metadata/.plugins/org.eclipse.core.resources/.projects/naming-server/.markers.snap
 .metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.syncinfo.snap
 .metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
+*.index
