@@ -1,6 +1,8 @@
 package com.microservices.userservice.service;
 
+import java.util.Collections;
 import java.util.Optional;
+import java.net.URI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +15,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.microservices.userservice.controller.AuthenticationController;
 import com.microservices.userservice.model.Role;
