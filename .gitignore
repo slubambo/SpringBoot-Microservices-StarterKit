@@ -52,3 +52,4 @@
 .metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
 .metadata/.plugins/org.eclipse.m2e.core/workspacestate.properties
 .metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser
+*.index
