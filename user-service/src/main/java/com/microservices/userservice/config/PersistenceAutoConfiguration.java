@@ -23,7 +23,7 @@ import jakarta.persistence.EntityManagerFactory;
 @Configuration
 @PropertySource({ "classpath:application-${spring.profiles.active}.properties" })
 @EnableJpaRepositories(basePackages = "com.microservices.userservice.repository", entityManagerFactoryRef = "entityManager", transactionManagerRef = "transactionManager")
-public class PersistenceMISAutoConfiguration {
+public class PersistenceAutoConfiguration {
 
 	@Value("${spring.datasource.jpa.hibernate.ddl-auto}")
 	private String ddlAuto;
@@ -44,7 +44,6 @@ public class PersistenceMISAutoConfiguration {
 		return builder.dataSource(dataSource).packages("com.microservices.userservice.model").persistenceUnit("user-db")
 				.properties(singletonMap("hibernate.hbm2ddl.auto", ddlAuto))
 				.properties(singletonMap("hibernate.dialect", "org.hibernate.dialect.MySQLDialect"))
-//				.properties(singletonMap("driver-class-name", "com.mysql.cj.jdbc.Driver"))
 				.properties(singletonMap("hibernate.physical_naming_strategy",
 						"com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy"))
 
