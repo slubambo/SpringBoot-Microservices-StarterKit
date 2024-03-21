@@ -25,8 +25,6 @@ public class UserPrincipal implements UserDetails {
 
 	private String username;
 
-	private String userType;
-
 	@JsonIgnore
 	private String email;
 
@@ -35,11 +33,10 @@ public class UserPrincipal implements UserDetails {
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserPrincipal(Long id, String name, String userType, String username, String email, String password,
+	public UserPrincipal(Long id, String name, String username, String email, String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
 		this.name = name;
-		this.userType = userType;
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -51,8 +48,8 @@ public class UserPrincipal implements UserDetails {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
 
-		return new UserPrincipal(user.getId(), null, user.getUserType() != null ? user.getUserType().name() : "User",
-				user.getUsername(), user.getEmail(), user.getPassword(), authorities);
+		return new UserPrincipal(user.getId(), null, user.getUsername(), user.getEmail(), user.getPassword(),
+				authorities);
 	}
 
 	public Long getId() {
@@ -65,14 +62,6 @@ public class UserPrincipal implements UserDetails {
 
 	public String getEmail() {
 		return email;
-	}
-
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
 	}
 
 	@Override
@@ -128,8 +117,7 @@ public class UserPrincipal implements UserDetails {
 
 	@Override
 	public String toString() {
-		return "UserPrincipal [id=" + id + ", name=" + name + ", username=" + username + ", userType=" + userType
-				+ ", email=" + email + ", password=" + password + ", authorities=" + authorities + "]";
+		return "UserPrincipal [id=" + id + ", name=" + name + ", username=" + username + ", email=" + email + "]";
 	}
 
 }

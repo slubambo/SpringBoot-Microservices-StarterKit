@@ -54,7 +54,7 @@ public class AuthenticationService {
 
 			User user = userPick.get();
 
-			if (user.getStatus() != null && user.getStatus() == 1) {
+			if (user.getStatus() != null && user.getStatus().equals(Status.ACTIVE)) {
 
 				Authentication authentication = authenticationManager
 						.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsernameOrEmail(),

@@ -9,8 +9,6 @@ import com.microservices.userservice.model.User;
 import com.microservices.userservice.payload.auth.UserDetailsResponse;
 import com.microservices.userservice.payload.user.UserDetailsRequest;
 import com.microservices.userservice.repository.UserRepository;
-import com.microservices.userservice.util.enums.Status;
-import com.microservices.userservice.util.enums.UserType;
 
 @Service
 public class UserService {
