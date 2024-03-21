@@ -118,13 +118,15 @@ public class AuthenticationService {
 				signUpRequest.getPassword());
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		
+
 		user.setProvider(AuthProvider.local);
 
 		Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
 				.orElseThrow(() -> new AppException("User Role not set."));
 
 		user.setRoles(Collections.singleton(userRole));
+
+		user.setStatus(Status.ACTIVE);
 
 		User result = userRepository.save(user);
 

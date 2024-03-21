@@ -21,7 +21,7 @@ public class JwtUtil {
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
 
-	public static final String SECRET = "275413a338ad36460de466f258819cdfd5b4310a217ec446cbf0bf0e1f46bd471a7e180204272f59";
+	public static final String SECRET = "e13ed96d548c2f8387471ee5982f277a89f9dd0ad38d2b9e032087e0be54e40d8565c8d25137ae8c766bcdc4dffb551da801f30075e6d84436e048108d67a96c";
 
 	public void validateToken(final String token) {
 		Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);

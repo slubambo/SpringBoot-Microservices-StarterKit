@@ -13,6 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -23,6 +27,10 @@ import com.microservices.userservice.security.oauth2.CustomOAuth2UserService;
 import com.microservices.userservice.security.oauth2.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.microservices.userservice.security.oauth2.OAuth2AuthenticationFailureHandler;
 import com.microservices.userservice.security.oauth2.OAuth2AuthenticationSuccessHandler;
+import com.nimbusds.oauth2.sdk.util.StringUtils;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Configuration
 @EnableWebSecurity
@@ -41,23 +49,30 @@ public class SecurityConfig {
 	@Autowired
 	private OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
 
-	@Autowired
-	private HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
-
 	@Bean
 	public JwtAuthenticationFilter jwtAuthenticationFilter() {
 		return new JwtAuthenticationFilter();
 	}
 
-	/*
-	 * By default, Spring OAuth2 uses
-	 * HttpSessionOAuth2AuthorizationRequestRepository to save the authorization
-	 * request. But, since our service is stateless, we can't save it in the
-	 * session. We'll save the request in a Base64 encoded cookie instead.
-	 */
 	@Bean
 	public HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository() {
 		return new HttpCookieOAuth2AuthorizationRequestRepository();
+	}
+
+	@Bean
+	public ClientRegistrationRepository clientRegistrationRepository() {
+		return new CustomClientRegistrationRepository();
+	}
+
+	private static class CustomClientRegistrationRepository implements ClientRegistrationRepository {
+
+		@Override
+		public ClientRegistration findByRegistrationId(String registrationId) {
+			// Implement logic to fetch client registration details from your configuration
+			// or database
+			// This method should return a ClientRegistration object
+			return null;
+		}
 	}
 
 	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -77,9 +92,8 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
 		return http.csrf(csrf -> csrf.disable())
-				.authorizeHttpRequests(auth -> auth
+				.authorizeRequests(authorizeRequests -> authorizeRequests
 						.requestMatchers(new AntPathRequestMatcher("/auth/**"), new AntPathRequestMatcher("/error"))
 						.permitAll().anyRequest().authenticated())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -103,5 +117,4 @@ public class SecurityConfig {
 		registrationBean.setOrder(1); // Set the desired order for the filter
 		return registrationBean;
 	}
-
 }
