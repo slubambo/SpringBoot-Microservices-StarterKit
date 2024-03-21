@@ -2,6 +2,7 @@ package com.microservices.userservice.security;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,8 @@ public class UserPrincipal implements UserDetails {
 
 	private Collection<? extends GrantedAuthority> authorities;
 
+	private Map<String, Object> attributes;
+
 	public UserPrincipal(Long id, String name, String username, String email, String password,
 			Collection<? extends GrantedAuthority> authorities) {
 		this.id = id;
@@ -50,6 +53,12 @@ public class UserPrincipal implements UserDetails {
 
 		return new UserPrincipal(user.getId(), null, user.getUsername(), user.getEmail(), user.getPassword(),
 				authorities);
+	}
+
+	public static UserPrincipal create(User user, Map<String, Object> attributes) {
+		UserPrincipal userPrincipal = UserPrincipal.create(user);
+		userPrincipal.setAttributes(attributes);
+		return userPrincipal;
 	}
 
 	public Long getId() {
@@ -118,6 +127,14 @@ public class UserPrincipal implements UserDetails {
 	@Override
 	public String toString() {
 		return "UserPrincipal [id=" + id + ", name=" + name + ", username=" + username + ", email=" + email + "]";
+	}
+
+	public Map<String, Object> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(Map<String, Object> attributes) {
+		this.attributes = attributes;
 	}
 
 }
