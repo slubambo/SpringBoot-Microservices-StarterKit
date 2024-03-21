@@ -64,3 +64,5 @@ build/
 *.snap
 *.index
 *.snap
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
