@@ -2,6 +2,7 @@ package com.microservices.userservice.security.oauth2.user;
 
 import java.util.Map;
 
+import com.microservices.userservice.exception.OAuth2AuthenticationProcessingException;
 import com.microservices.userservice.util.enums.AuthProvider;
 
 public class OAuth2UserInfoFactory {
