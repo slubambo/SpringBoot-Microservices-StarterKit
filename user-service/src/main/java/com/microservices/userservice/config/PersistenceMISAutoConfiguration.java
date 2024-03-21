@@ -43,8 +43,8 @@ public class PersistenceMISAutoConfiguration {
 
 		return builder.dataSource(dataSource).packages("com.microservices.userservice.model").persistenceUnit("user-db")
 				.properties(singletonMap("hibernate.hbm2ddl.auto", ddlAuto))
-				.properties(singletonMap("hibernate.dialect", "org.hibernate.dialect.MySQL8InnoDBDialect"))
-				.properties(singletonMap("driver-class-name", "com.mysql.cj.jdbc.Driver"))
+				.properties(singletonMap("hibernate.dialect", "org.hibernate.dialect.MySQLDialect"))
+//				.properties(singletonMap("driver-class-name", "com.mysql.cj.jdbc.Driver"))
 				.properties(singletonMap("hibernate.physical_naming_strategy",
 						"com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy"))
 
