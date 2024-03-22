@@ -6,7 +6,7 @@ Welcome to the SpringBoot Microservices Starter Kit repository! This repository 
 
 1. **Naming Server**: Eureka Naming Server for service discovery.
 2. **Gateway**: Zuul API Gateway for routing and filtering requests.
-3. **Canva Service**: Template service that can be easily replicated and extended.
+3. **Template Service**: Template service that can be easily replicated and extended.
 4. **Authentication**: JWT authentication and token validation via the gateway.
 5. **Database Connection**: Configurations for connecting to databases.
 6. **Auditing**: Configuration and models for auditing purposes, including created and updated dates, and created by and updated by fields.
@@ -26,8 +26,10 @@ To get started with using this starter kit, follow these steps:
 5. **Explore and Extend**: Explore the provided services and functionalities. Extend them to suit your specific use cases and requirements.
 
 6. **Deploy**: Once you're satisfied with your modifications, deploy the microservices to your desired environment.
+   
+8. **Template Service**: Details on how to customize the template service are in the read-me file in template-service directory.
 
-7. **Contribute**: If you find bugs or have suggestions for improvements, feel free to contribute by opening issues or submitting pull requests.
+9. **Contribute**: If you find bugs or have suggestions for improvements, feel free to contribute by opening issues or submitting pull requests.
 
 ## Contributing
 
