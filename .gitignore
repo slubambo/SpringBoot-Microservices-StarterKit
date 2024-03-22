@@ -130,3 +130,4 @@ build/
 .metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
 .metadata/.plugins/org.eclipse.core.resources/0.snap
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+.metadata/.plugins/org.eclipse.m2e.logback/0.log
