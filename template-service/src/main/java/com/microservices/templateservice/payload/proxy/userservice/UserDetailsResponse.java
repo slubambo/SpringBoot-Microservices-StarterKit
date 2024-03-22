@@ -1,7 +1,7 @@
 package com.microservices.templateservice.payload.proxy.userservice;
 
 import com.microservices.templateservice.util.enums.RoleName;
-import com.microservices.templateservice.util.enums.UserType;
+import com.microservices.templateservice.util.enums.Status;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,9 +20,7 @@ public class UserDetailsResponse {
 
 	private String email;
 
-	private Integer status;
-
-	private UserType userType;
+	private Status status;
 
 	private RoleName roleName;
 
