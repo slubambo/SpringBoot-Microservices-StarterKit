@@ -9,11 +9,11 @@
 		<version>3.2.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>mis.microservices</groupId>
-	<artifactId>canvaservice</artifactId>
+	<groupId>com.templateservice</groupId>
+	<artifactId>templateservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>currency-conversion-service</name>
-	<description>Microservice Boilerplate</description>
+	<description>Microservice Template</description>
 
 	<properties>
 		<java.version>21</java.version>
