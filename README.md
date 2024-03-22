@@ -6,7 +6,7 @@ Welcome to the SpringBoot Microservices Starter Kit repository! This repository 
 
 1. **Naming Server**: Eureka Naming Server for service discovery.
 2. **Gateway**: Zuul API Gateway for routing and filtering requests.
-3. **Canva Service**: Template service that can be easily replicated and extended.
+3. **Template Service**: Template service that can be easily replicated and extended.
 4. **Authentication**: JWT authentication and token validation via the gateway.
 5. **Database Connection**: Configurations for connecting to databases.
 6. **Auditing**: Configuration and models for auditing purposes, including created and updated dates, and created by and updated by fields.
@@ -20,14 +20,19 @@ To get started with using this starter kit, follow these steps:
 1. **Clone the Repository**: Clone this repository to your local machine using the following command: (git clone https://github.com/your-username/SpringBoot-Microservices-StarterKit.git)
    
 3. **Configuration**: Customize the configurations according to your requirements, such as database settings, JWT secret, etc.
+   Insert default roles into the user-database:
+   (INSERT INTO roles(name) VALUES('ROLE_USER');
+   INSERT INTO roles(name) VALUES('ROLE_ADMIN');)
 
-4. **Build and Run**: Build and run the microservices using your favorite IDE or build tools like Maven or Gradle.
+6. **Build and Run**: Build and run the microservices using your favorite IDE or build tools like Maven or Gradle.
 
-5. **Explore and Extend**: Explore the provided services and functionalities. Extend them to suit your specific use cases and requirements.
+7. **Explore and Extend**: Explore the provided services and functionalities. Extend them to suit your specific use cases and requirements.
 
-6. **Deploy**: Once you're satisfied with your modifications, deploy the microservices to your desired environment.
+8. **Deploy**: Once you're satisfied with your modifications, deploy the microservices to your desired environment.
+   
+9. **Template Service**: Details on how to customize the template service are in the read-me file in template-service directory.
 
-7. **Contribute**: If you find bugs or have suggestions for improvements, feel free to contribute by opening issues or submitting pull requests.
+10. **Contribute**: If you find bugs or have suggestions for improvements, feel free to contribute by opening issues or submitting pull requests.
 
 ## Contributing
 
