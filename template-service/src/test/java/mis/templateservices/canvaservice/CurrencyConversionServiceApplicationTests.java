@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice;
+package mis.templateservices.canvaservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

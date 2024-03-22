@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.audit;
+package mis.microservices.templateservice.audit;
 
 import java.io.Serializable;
 import java.time.Instant;

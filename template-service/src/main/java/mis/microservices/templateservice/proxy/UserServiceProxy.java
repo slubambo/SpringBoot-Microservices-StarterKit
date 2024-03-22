@@ -1,11 +1,11 @@
-package mis.microservices.canvaservice.proxy;
+package mis.microservices.templateservice.proxy;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import mis.microservices.canvaservice.payload.proxy.userservice.UserDetailsRequest;
-import mis.microservices.canvaservice.payload.proxy.userservice.UserDetailsResponse;
+import mis.microservices.templateservice.payload.proxy.userservice.UserDetailsRequest;
+import mis.microservices.templateservice.payload.proxy.userservice.UserDetailsResponse;
 
 @FeignClient(name = "user-service")
 public interface UserServiceProxy {

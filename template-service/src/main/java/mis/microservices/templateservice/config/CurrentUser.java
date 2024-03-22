@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.config;
+package mis.microservices.templateservice.config;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

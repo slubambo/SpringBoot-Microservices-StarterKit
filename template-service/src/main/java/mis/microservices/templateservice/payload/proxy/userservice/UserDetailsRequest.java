@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.payload.proxy.userservice;
+package mis.microservices.templateservice.payload.proxy.userservice;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

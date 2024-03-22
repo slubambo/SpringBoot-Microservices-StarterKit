@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.audit;
+package mis.microservices.templateservice.audit;
 
 import java.util.Optional;
 
@@ -11,7 +11,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import mis.microservices.canvaservice.config.SessionUser;
+import mis.microservices.templateservice.config.SessionUser;
 
 @Configuration
 @PropertySource({ "classpath:application.properties" })

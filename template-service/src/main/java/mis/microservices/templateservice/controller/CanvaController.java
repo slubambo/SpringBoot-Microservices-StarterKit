@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.controller;
+package mis.microservices.templateservice.controller;
 
 import java.util.HashMap;
 
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import jakarta.validation.Valid;
-import mis.microservices.canvaservice.payload.proxy.userservice.UserDetailsRequest;
-import mis.microservices.canvaservice.payload.proxy.userservice.UserDetailsResponse;
-import mis.microservices.canvaservice.proxy.UserServiceProxy;
+import mis.microservices.templateservice.payload.proxy.userservice.UserDetailsRequest;
+import mis.microservices.templateservice.payload.proxy.userservice.UserDetailsResponse;
+import mis.microservices.templateservice.proxy.UserServiceProxy;
 
 @Configuration(proxyBeanMethods = false)
 class RestTemplateConfiguration {

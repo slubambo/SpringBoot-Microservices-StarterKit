@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.util.enums;
+package mis.microservices.templateservice.util.enums;
 
 import java.util.HashMap;
 import java.util.Map;

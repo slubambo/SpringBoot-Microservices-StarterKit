@@ -1,4 +1,4 @@
-package mis.microservices.canvaservice.config;
+package mis.microservices.templateservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

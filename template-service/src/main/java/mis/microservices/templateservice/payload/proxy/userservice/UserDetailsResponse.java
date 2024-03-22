@@ -1,10 +1,10 @@
-package mis.microservices.canvaservice.payload.proxy.userservice;
+package mis.microservices.templateservice.payload.proxy.userservice;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mis.microservices.canvaservice.util.enums.RoleName;
-import mis.microservices.canvaservice.util.enums.UserType;
+import mis.microservices.templateservice.util.enums.RoleName;
+import mis.microservices.templateservice.util.enums.UserType;
 
 @NoArgsConstructor
 @Setter
