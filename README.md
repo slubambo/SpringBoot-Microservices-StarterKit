@@ -21,8 +21,8 @@ To get started with using this starter kit, follow these steps:
    
 3. **Configuration**: Customize the configurations according to your requirements, such as database settings, JWT secret, etc.
    Insert default roles into the user-database:
-   INSERT INTO roles(name) VALUES('ROLE_USER');
-   INSERT INTO roles(name) VALUES('ROLE_ADMIN');
+   (INSERT INTO roles(name) VALUES('ROLE_USER');
+   INSERT INTO roles(name) VALUES('ROLE_ADMIN');)
 
 6. **Build and Run**: Build and run the microservices using your favorite IDE or build tools like Maven or Gradle.
 
