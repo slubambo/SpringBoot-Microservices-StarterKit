@@ -30,8 +30,8 @@ class RestTemplateConfiguration {
 }
 
 @RestController
-@RequestMapping("/canva")
-public class CanvaController {
+@RequestMapping("/template")
+public class TemplateController {
 
 	@Autowired
 	private UserServiceProxy proxy;

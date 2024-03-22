@@ -33,11 +33,11 @@ public class ApiGatewayConfiguration {
 						.uri("lb://user-service"))
 
 				/*
-				 * Routes for Canva Service
+				 * Routes for Template Service
 				 */
 
-				.route(p -> p.path("/canva/**").filters(f -> f.filter(authFilter.apply(new AuthFilter.Config())))
-						.uri("lb://canva-service"))
+				.route(p -> p.path("/template/**").filters(f -> f.filter(authFilter.apply(new AuthFilter.Config())))
+						.uri("lb://template-service"))
 
 				.build();
 	}
