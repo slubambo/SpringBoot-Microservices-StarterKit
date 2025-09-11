@@ -17,7 +17,7 @@ Welcome to the SpringBoot Microservices Starter Kit repository! This repository 
 
 To get started with using this starter kit, follow these steps:
 
-1. **Clone the Repository**: Clone this repository to your local machine using the following command: (git clone https://github.com/your-username/SpringBoot-Microservices-StarterKit.git)
+1. **Clone the Repository**: Clone this repository to your local machine using the following command: (git clone https://github.com/slubambo/SpringBoot-Microservices-StarterKit.git)
    
 3. **Configuration**: Customize the configurations according to your requirements, such as database settings, JWT secret, etc.
    Insert default roles into the user-database:
