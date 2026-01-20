@@ -3,10 +3,6 @@ package com.microservices.userservice.payload.auth;
 import com.microservices.userservice.util.enums.RoleName;
 import com.microservices.userservice.util.enums.Status;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 public class UserDetailsResponse {
 
 	private String name;
