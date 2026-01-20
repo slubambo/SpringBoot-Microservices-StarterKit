@@ -13,6 +13,15 @@ Welcome to the SpringBoot Microservices Starter Kit repository! This repository 
 7. **User Roles**: Role-based access control for managing user permissions.
 8. **Proxies with Feign**: Simplified communication between microservices and REST APIs using Feign.
 
+## Spring Boot 4 Upgrade Notes
+
+This starter kit now targets Spring Boot 4.0.1, Spring Cloud 2025.1.0, and Java 21 (latest LTS supported by Boot 4).
+
+- **Gateway starter**: Spring Cloud Gateway now uses `spring-cloud-starter-gateway-server-webflux`.
+- **JPA properties**: Use `spring.jpa.*` (for example, `spring.jpa.hibernate.ddl-auto`) and `spring.datasource.url`.
+- **Lombok**: Lombok is pinned and annotation processing enabled in Maven to keep generated getters/setters working.
+- **MySQL reserved table name**: The `user` table name is reserved in MySQL. The user-service config enables global quoting; if you manage schema manually, keep backticks around `user`.
+
 ## Getting Started
 
 To get started with using this starter kit, follow these steps:
@@ -41,4 +50,3 @@ Contributions are welcome! If you encounter any issues or have ideas for improve
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
