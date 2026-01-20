@@ -24,7 +24,6 @@ public class LoginRequest {
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public LoginRequest() {
-		super();
 	}
 
 	public String getUsernameOrEmail() {

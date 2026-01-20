@@ -18,7 +18,6 @@ public class UserDetailsResponse {
 	private RoleName roleName;
 
 	public UserDetailsResponse() {
-		super();
 	}
 
 	public String getName() {

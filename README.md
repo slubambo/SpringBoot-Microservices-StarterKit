@@ -19,7 +19,7 @@ This starter kit now targets Spring Boot 4.0.1, Spring Cloud 2025.1.0, and Java 
 
 - **Gateway starter**: Spring Cloud Gateway now uses `spring-cloud-starter-gateway-server-webflux`.
 - **JPA properties**: Use `spring.jpa.*` (for example, `spring.jpa.hibernate.ddl-auto`) and `spring.datasource.url`.
-- **Lombok**: Lombok is pinned and annotation processing enabled in Maven to keep generated getters/setters working.
+- **Lombok**: Lombok has been removed from this project; all getters/setters and related boilerplate are now written explicitly in the codebase.
 - **MySQL reserved table name**: The `user` table name is reserved in MySQL. The user-service config enables global quoting; if you manage schema manually, keep backticks around `user`.
 
 ## Getting Started
