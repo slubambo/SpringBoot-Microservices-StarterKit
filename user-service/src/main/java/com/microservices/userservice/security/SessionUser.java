@@ -2,13 +2,6 @@ package com.microservices.userservice.security;
 
 import java.util.Collection;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@AllArgsConstructor
-@NoArgsConstructor
 public class SessionUser {
 
 	private Long id;
@@ -18,6 +11,16 @@ public class SessionUser {
 	private String username;
 
 	private Collection<?> authorities;
+
+	public SessionUser() {
+	}
+
+	public SessionUser(Long id, String name, String username, Collection<?> authorities) {
+		this.id = id;
+		this.name = name;
+		this.username = username;
+		this.authorities = authorities;
+	}
 
 	@Override
 	public String toString() {
