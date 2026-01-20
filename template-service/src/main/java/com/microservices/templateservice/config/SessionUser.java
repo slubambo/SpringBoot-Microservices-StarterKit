@@ -2,13 +2,6 @@ package com.microservices.templateservice.config;
 
 import java.util.Collection;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@AllArgsConstructor
-@NoArgsConstructor
 public class SessionUser {
 
 	private Long id;
@@ -22,6 +15,19 @@ public class SessionUser {
 	private Collection<?> authorities;
 
 	private Collection<?> permissions;
+
+	public SessionUser() {
+	}
+
+	public SessionUser(Long id, String name, String username, String userType, Collection<?> authorities,
+			Collection<?> permissions) {
+		this.id = id;
+		this.name = name;
+		this.username = username;
+		this.userType = userType;
+		this.authorities = authorities;
+		this.permissions = permissions;
+	}
 
 	@Override
 	public String toString() {
