@@ -12,4 +12,5 @@ _Other Notes:_
 1. The Template Controller has end-points that connect to the user proxy which communicates to the user service
 2. Set up your models, the Date Audit and UserDateAudit are supported
 3. Authentication in communicating with other services is configured and works well
+4. Spring Boot 4 expects `spring.datasource.url` and `spring.jpa.*` properties in `application-*.properties`
    

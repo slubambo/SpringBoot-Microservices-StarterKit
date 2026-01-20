@@ -3,7 +3,6 @@ package com.microservices.templateservice.controller;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +23,8 @@ import jakarta.validation.Valid;
 class RestTemplateConfiguration {
 
 	@Bean
-	RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.build();
+	RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 }
 

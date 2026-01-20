@@ -27,17 +27,17 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
 	public GatewayFilter apply(Config config) {
 
 		return ((exchange, chain) -> {
-			ServerHttpRequest request = null;
+			ServerHttpRequest request = exchange.getRequest();
 
 			if (!validator.isSecured.test(exchange.getRequest())) {
 
 				// header contains token or not
-				if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
+				String authHeader = exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+				if (authHeader == null) {
 
 					throw new RuntimeException("missing authorization header");
 				}
 
-				String authHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
 				if (authHeader != null && authHeader.startsWith("Bearer ")) {
 
 					authHeader = authHeader.substring(7);

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.1</version>
+		<version>4.0.1</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.templateservice</groupId>
@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>21</java.version>
-		<spring-cloud.version>2023.0.0</spring-cloud.version>
+		<spring-cloud.version>2025.1.0</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -38,12 +38,6 @@
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.vladmihalcea</groupId>
-			<artifactId>hibernate-types-60</artifactId>
-			<version>2.21.1</version>
 		</dependency>
 
 		<dependency>
@@ -113,12 +107,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>
-				org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

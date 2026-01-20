@@ -1,16 +1,28 @@
 package com.microservices.userservice.payload.user;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@NoArgsConstructor
-@Getter
-@Setter
 public class UserDetailsRequest {
 
 	private Long id;
 
 	private String usernameOrEmail;
+
+	public UserDetailsRequest() {
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUsernameOrEmail() {
+		return usernameOrEmail;
+	}
+
+	public void setUsernameOrEmail(String usernameOrEmail) {
+		this.usernameOrEmail = usernameOrEmail;
+	}
 
 }
