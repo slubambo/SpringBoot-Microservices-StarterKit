@@ -7,7 +7,6 @@ public class UserDetailsRequest {
 	private String usernameOrEmail;
 
 	public UserDetailsRequest() {
-		super();
 	}
 
 	public Long getId() {

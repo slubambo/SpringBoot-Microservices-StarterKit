@@ -24,7 +24,6 @@ public class SignUpRequest {
 	private String password;
 
 	public SignUpRequest() {
-		super();
 	}
 
 	public String getName() {
@@ -58,6 +57,5 @@ public class SignUpRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 
 }
