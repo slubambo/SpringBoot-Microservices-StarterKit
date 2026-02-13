@@ -1,5 +1,8 @@
 # Spring Boot Microservices Starter Kit
 
+[![CI](https://github.com/slubambo/SpringBoot-Microservices-StarterKit/actions/workflows/ci.yml/badge.svg)](https://github.com/slubambo/SpringBoot-Microservices-StarterKit/actions/workflows/ci.yml)
+[![Docker Publish](https://github.com/slubambo/SpringBoot-Microservices-StarterKit/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/slubambo/SpringBoot-Microservices-StarterKit/actions/workflows/docker-publish.yml)
+
 A practical starter kit for building Spring Boot microservices with service discovery, gateway routing, JWT authentication, and inter-service communication.
 
 This project is designed for two outcomes:
@@ -31,6 +34,17 @@ This project is designed for two outcomes:
 3. Client calls secured routes through `api-gateway`.
 4. Gateway validates token and forwards user context to downstream services.
 5. Services discover each other through `naming-server`.
+
+## CI and Automation
+
+- `CI` workflow runs on pull requests to `main`, pushes to `main`, and manual dispatch.
+- CI validates each service with Maven `verify` and runs a Docker Compose smoke test for the full stack.
+- `Docker Publish` workflow runs only on version tags (`v*`) or manual dispatch.
+- Merging to `main` does not push images to Docker Hub by default.
+
+Required GitHub repository secrets for image publishing:
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`
 
 ## Quick Start (Docker Compose)
 
@@ -123,15 +137,22 @@ Key values:
 
 ## Docker image publishing (multi-arch)
 
+### Option A: GitHub Actions publish
+
+- On release tag push (for example `v1.0.0`), GitHub Actions builds and publishes multi-arch images.
+- You can also trigger publish manually from the `Docker Publish` workflow and provide a custom tag.
+
+### Option B: Local manual publish
+
 This repo includes `scripts/build-and-push-images.sh`, which follows your `buildx` approach and pushes all 4 service images.
 
-### 1. Login to Docker Hub
+1. Login to Docker Hub
 
 ```bash
 docker login
 ```
 
-### 2. Build and push
+2. Build and push
 
 ```bash
 DOCKERHUB_USERNAME=slubambo IMAGE_TAG=latest ./scripts/build-and-push-images.sh
