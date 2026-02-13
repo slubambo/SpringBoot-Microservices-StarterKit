@@ -1,0 +1,115 @@
+name: springboot-microservices-starterkit
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: starterkit-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+    ports:
+      - "${DB_PORT:-13306}:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$${MYSQL_ROOT_PASSWORD} || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 20s
+
+  naming-server:
+    build:
+      context: ./naming-server
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-slubambo}/springboot-ms-naming-server:${IMAGE_TAG:-latest}
+    container_name: starterkit-naming-server
+    restart: unless-stopped
+    environment:
+      SPRING_CLOUD_CONFIG_ENABLED: "false"
+      SERVER_PORT: 8761
+    ports:
+      - "${NAMING_SERVER_PORT:-18761}:8761"
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-slubambo}/springboot-ms-user-service:${IMAGE_TAG:-latest}
+    container_name: starterkit-user-service
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+      naming-server:
+        condition: service_started
+    environment:
+      SPRING_CLOUD_CONFIG_ENABLED: "false"
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      SERVER_PORT: 8000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      USER_DB_NAME: ${USER_DB_NAME:-users_db}
+      DB_USERNAME: ${DB_USERNAME:-root}
+      DB_PASSWORD: ${DB_PASSWORD:-root}
+      EUREKA_DEFAULT_ZONE: http://naming-server:8761/eureka
+      JWT_SECRET: ${JWT_SECRET:-starter-kit-dev-secret-change-me-please-change-this-value-0123456789-abcdef0123456789}
+      JWT_EXPIRATION_MS: ${JWT_EXPIRATION_MS:-10800000}
+      CORS_ALLOWED_ORIGINS: "${CORS_ALLOWED_ORIGINS:-*}"
+    ports:
+      - "${USER_SERVICE_PORT:-18000}:8000"
+
+  template-service:
+    build:
+      context: ./template-service
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-slubambo}/springboot-ms-template-service:${IMAGE_TAG:-latest}
+    container_name: starterkit-template-service
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+      naming-server:
+        condition: service_started
+      user-service:
+        condition: service_started
+    environment:
+      SPRING_CLOUD_CONFIG_ENABLED: "false"
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      SERVER_PORT: 8100
+      DB_HOST: mysql
+      DB_PORT: 3306
+      TEMPLATE_DB_NAME: ${TEMPLATE_DB_NAME:-canva}
+      DB_USERNAME: ${DB_USERNAME:-root}
+      DB_PASSWORD: ${DB_PASSWORD:-root}
+      EUREKA_DEFAULT_ZONE: http://naming-server:8761/eureka
+      JWT_SECRET: ${JWT_SECRET:-starter-kit-dev-secret-change-me-please-change-this-value-0123456789-abcdef0123456789}
+    ports:
+      - "${TEMPLATE_SERVICE_PORT:-18100}:8100"
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-slubambo}/springboot-ms-api-gateway:${IMAGE_TAG:-latest}
+    container_name: starterkit-api-gateway
+    restart: unless-stopped
+    depends_on:
+      naming-server:
+        condition: service_started
+      user-service:
+        condition: service_started
+      template-service:
+        condition: service_started
+    environment:
+      SPRING_CLOUD_CONFIG_ENABLED: "false"
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
+      SERVER_PORT: 8765
+      EUREKA_DEFAULT_ZONE: http://naming-server:8761/eureka
+      JWT_SECRET: ${JWT_SECRET:-starter-kit-dev-secret-change-me-please-change-this-value-0123456789-abcdef0123456789}
+    ports:
+      - "${API_GATEWAY_PORT:-18765}:8765"
+
+volumes:
+  mysql-data:
