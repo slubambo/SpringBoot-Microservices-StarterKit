@@ -1,10 +1,12 @@
 package com.microservices.apigateway.util;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.function.Function;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import io.jsonwebtoken.Claims;
@@ -13,7 +15,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 @Component
@@ -21,7 +22,8 @@ public class JwtUtil {
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);
 
-	public static final String SECRET = "4e96bde4beb408133e5d5cc89987be410eb71d6418c34d0f47a83c9bb0c73fd2d171c4b1b3f9503922888d557f0de47dd01ff97a68b482e8c58acda";
+	@Value("${app.jwtSecret}")
+	private String jwtSecret;
 
 	public void validateToken(final String token) {
 		Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);
@@ -51,7 +53,7 @@ public class JwtUtil {
 	}
 
 	private Key getSignKey() {
-		byte[] keyBytes = Decoders.BASE64.decode(SECRET);
+		byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
 		return Keys.hmacShaKeyFor(keyBytes);
 	}
 
