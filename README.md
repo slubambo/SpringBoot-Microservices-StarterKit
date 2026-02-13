@@ -186,6 +186,12 @@ Repeat for the other service folders and image tags.
 - Use strong secrets in `.env` for real deployments.
 - `spring-cloud-config` is optional and disabled in `docker-compose.yml`.
 
+## Contributing
+
+- Read `CONTRIBUTING.md` before opening issues or pull requests.
+- Use the built-in GitHub issue templates for bugs and feature requests.
+- Maintainers should apply labels using `.github/LABELS.md`.
+
 ## Repository Layout
 
 ```text

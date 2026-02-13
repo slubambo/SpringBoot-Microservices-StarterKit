@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution Guide
+    url: https://github.com/slubambo/SpringBoot-Microservices-StarterKit/blob/main/CONTRIBUTING.md
+    about: Read the contribution process, standards, and test expectations.
+  - name: Report a security vulnerability
+    url: https://github.com/slubambo/SpringBoot-Microservices-StarterKit/security/advisories/new
+    about: Please report sensitive security issues privately.

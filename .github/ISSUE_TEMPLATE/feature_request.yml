@@ -1,0 +1,61 @@
+name: Feature request
+description: Suggest an improvement for the starter kit.
+title: "[Feature]: "
+labels:
+  - enhancement
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. Focus on practical impact for starter-kit users.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem does this solve?
+      placeholder: The current setup makes it hard to ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe your preferred approach.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other options you considered.
+
+  - type: checkboxes
+    id: impact-area
+    attributes:
+      label: Impact area
+      options:
+        - label: onboarding / documentation
+        - label: service architecture
+        - label: security
+        - label: local developer experience
+        - label: CI/CD and automation
+        - label: containerization / deployment
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: What should be true for this to be complete?
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Links, examples, references.

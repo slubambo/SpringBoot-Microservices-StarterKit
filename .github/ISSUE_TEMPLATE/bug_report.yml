@@ -1,0 +1,88 @@
+name: Bug report
+description: Report a reproducible defect in this starter kit.
+title: "[Bug]: "
+labels:
+  - bug
+  - needs-triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this issue. Please provide enough detail to reproduce it quickly.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I can reproduce this on the latest `main` branch.
+          required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Bug summary
+      description: What is broken?
+      placeholder: A short description of the defect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide exact, ordered steps.
+      placeholder: |
+        1. Run ...
+        2. Call endpoint ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: services
+    attributes:
+      label: Affected services
+      options:
+        - label: naming-server
+        - label: api-gateway
+        - label: user-service
+        - label: template-service
+        - label: docker-compose / infrastructure
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and stack traces
+      description: Paste relevant logs/errors. Avoid secrets.
+      render: shell
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Versions and platform details.
+      placeholder: |
+        - OS:
+        - Java version:
+        - Maven version:
+        - Docker version:
+        - Docker Compose version:
+    validations:
+      required: true
