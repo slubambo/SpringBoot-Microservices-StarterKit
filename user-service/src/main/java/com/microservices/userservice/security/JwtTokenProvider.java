@@ -1,10 +1,13 @@
 package com.microservices.userservice.security;
 
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.Keys;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +29,10 @@ public class JwtTokenProvider {
 
 	@Value("${app.jwtExpirationInMs}")
 	private int jwtExpirationInMs;
+
+	private Key getSignKey() {
+		return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
+	}
 
 	public String generateToken(Authentication authentication) {
 
@@ -51,7 +58,7 @@ public class JwtTokenProvider {
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("session-user", mapped != null ? mapped : sessionUser.toString());
 		return Jwts.builder().setSubject(Long.toString(userPrincipal.getId())).setClaims(claims).setIssuedAt(new Date())
-				.setExpiration(expiryDate).signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
+				.setExpiration(expiryDate).signWith(getSignKey(), SignatureAlgorithm.HS512).compact();
 	}
 
 	public String generateToken(LoginRequest loginRequest) {
@@ -76,12 +83,12 @@ public class JwtTokenProvider {
 		Map<String, Object> claims = new HashMap<>();
 		claims.put("session-user", mapped != null ? mapped : sessionUser.toString());
 		return Jwts.builder().setSubject(Long.toString(loginRequest.getId())).setClaims(claims).setIssuedAt(new Date())
-				.setExpiration(expiryDate).signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
+				.setExpiration(expiryDate).signWith(getSignKey(), SignatureAlgorithm.HS512).compact();
 	}
 
 	public boolean validateToken(String authToken) {
 		try {
-			Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
+			Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(authToken);
 			return true;
 		} catch (SignatureException ex) {
 			logger.error("Invalid JWT signature");

@@ -4,6 +4,7 @@
 .metadata/.plugins/**
 
 # Other patterns to ignore
+.env
 *.txt
 *.ser
 *.prefs
